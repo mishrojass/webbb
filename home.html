@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mamba Sunset Cochabamba</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script async defer src="https://www.instagram.com/embed.js"></script>
+
+  <style>
+    :root {
+      --negro: #121212;
+      --blanco: #fefefe;
+      --amarillo: #f7b500;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--negro);
+      color: var(--blanco);
+      padding-top: 56px;
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      backdrop-filter: saturate(180%) blur(20px);
+      background-color: rgba(18, 18, 18, 0.9);
+      position: fixed;
+      width: 100%;
+      z-index: 1030;
+      top: 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    nav .nav-link {
+      color: var(--blanco);
+      font-weight: 500;
+      margin-right: 15px;
+      transition: color 0.3s ease;
+    }
+
+    nav .nav-link:hover {
+      color: var(--amarillo);
+      text-decoration: underline;
+    }
+
+    header {
+      height: 90vh;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(18, 18, 18, 0.9)),
+        url('./mamba-bg.png') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      color: var(--blanco);
+      padding: 0 15px;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      letter-spacing: 4px;
+      color: var(--amarillo);
+      margin-bottom: 20px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+
+    section {
+      padding: 80px 15px;
+      max-width: 900px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 25px;
+      color: var(--amarillo);
+      text-align: center;
+    }
+
+    section p, section ul {
+      font-size: 1.1rem;
+      text-align: center;
+      color: #ddd;
+    }
+
+    .viernes-tematicas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .btn-instagram {
+      background: #E4405F;
+      color: white;
+      font-weight: 600;
+      border-radius: 50px;
+      padding: 8px 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-instagram:hover {
+      background: #c72b46;
+      color: white;
+    }
+
+    form label {
+      font-weight: 600;
+      color: var(--blanco);
+      display: block;
+      margin-top: 15px;
+    }
+
+    form input, form select, form button, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      margin-top: 5px;
+      background: #222;
+      color: white;
+      font-size: 1rem;
+    }
+
+    form textarea {
+      resize: vertical;
+    }
+
+    form button {
+      margin-top: 25px;
+      background-color: var(--amarillo);
+      color: var(--negro);
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #d49e00;
+    }
+
+    footer {
+      padding: 20px;
+      text-align: center;
+      background-color: rgba(18, 18, 18, 0.85);
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 576px) {
+      header h1 {
+        font-size: 2.8rem;
+      }
+
+      section h2 {
+        font-size: 2rem;
+      }
+
+      section {
+        padding: 50px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#historia">Historia</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tematica">Temática</a></li>
+          <li class="nav-item"><a class="nav-link" href="#reserva">Reserva</a></li>
+          <li class="nav-item">
+            <a class="btn-instagram" href="https://www.instagram.com/mamba_sunsets" target="_blank">
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner -->
+  <header>
+    <h1>Mamba Sunset</h1>
+    <p>Donde cada viernes es tu casita y se transforma en el mejor Mambeo.</p>
+  </header>
+
+  <!-- Historia -->
+  <section id="historia" class="animate-section">
+    <h2>Historia</h2>
+    <p>Mamba Sunset nació como una idea entre hermanos. Horacio conocido en redes como El Cardamomo ya venía moviéndose en el mundo del arte, la música y los eventos. Junto a su hermano, decidieron dejar de esperar a que pasara algo diferente en la ciudad... y crearlo ellos mismos.
+
+    Querían un lugar que reflejara su visión: noches bien pensadas, buena música, estética fuerte y libertad para expresarse. Nada de clubs genéricos, nada de lo mismo de siempre. Así empezó Mamba, con eventos pequeños pero con intención. Visuales que no pasaban desapercibidos, sets en vivo, tragos con carácter y una atmósfera que se sentía distinta desde que entrabas.
+
+    No fue solo un proyecto de fiesta: fue un espacio para la comunidad que vibra con la música, el diseño y la cultura alternativa. Mamba se volvió ese punto de encuentro donde podías ser tú, sin filtros.
+
+    Hoy, sigue creciendo, pero no olvida por qué nació: porque Horacio y su hermano creyeron que Cochabamba merecía algo mejor. Y lo hicieron realidad.</p>
+  </section>
+
+  <!-- Temática -->
+  <section id="tematica" class="animate-section">
+    <h2>Temática de cada viernes</h2>
+    <div class="viernes-tematicas">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DKaE0ZhuYUl/" data-instgrm-version="14" style="margin: auto;"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DKbJo9PtJQi/" data-instgrm-version="14" style="margin: auto;"></blockquote>
+    </div>
+  </section>
+
+  <!-- Reserva -->
+  <section id="reserva" class="animate-section">
+    <h2>Reserva tu mesita</h2>
+    <form id="reservaForm">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" />
+      <label for="fecha">Fecha (viernes):</label>
+      <input type="date" id="fecha" name="fecha" required />
+      <label for="mesitas">Número de mesitas:</label>
+      <select id="mesitas" name="mesitas" required>
+        <option value="" disabled selected>Selecciona</option>
+        <option value="1">1 mesita</option>
+        <option value="2">2 mesitas</option>
+        <option value="3">3 mesitas</option>
+        <option value="4">4 mesitas</option>
+      </select>
+      <button type="submit">Reservar vía WhatsApp</button>
+    </form>
+  </section>
+
+  <!-- Comentarios -->
+  <section id="comentarios" class="animate-section">
+    <h2>Deja tu comentario</h2>
+    <p>¿Cómo estuvo tu Mambazo? ¡Queremos saberlo!</p>
+    <form id="comentarioForm">
+      <label for="nombreComentario">Tu nombre:</label>
+      <input type="text" id="nombreComentario" name="nombreComentario" required placeholder="Tu nombre" />
+      <label for="comentario">Tu comentario:</label>
+      <textarea id="comentario" name="comentario" rows="4" required placeholder="Escribe aquí tu experiencia..."></textarea>
+      <button type="submit" id="comentarioBtn">Enviar comentario</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Mamba Sunset Cochabamba. Todos los derechos reservados.
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function revealSections() {
+      const sections = document.querySelectorAll('.animate-section');
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < triggerBottom) section.classList.add('visible');
+      });
+    }
+    window.addEventListener('scroll', revealSections);
+    window.addEventListener('load', revealSections);
+
+    // WhatsApp reserva
+    const form = document.getElementById('reservaForm');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const fecha = document.getElementById('fecha').value;
+      const mesitas = document.getElementById('mesitas').value;
+      if (!nombre || !fecha || !mesitas) {
+        alert('Por favor completa todos los campos.');
+        return;
+      }
+      const mensaje = `Hola, quiero reservar ${mesitas} mesita(s) para el ${fecha}.\nNombre: ${nombre}`;
+      const telefono = '591XXXXXXXXX';
+      const urlWhatsApp = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+      window.open(urlWhatsApp, '_blank');
+    });
+
+    // Comentario dinámico
+    const comentarioForm = document.getElementById('comentarioForm');
+    const comentarioBtn = document.getElementById('comentarioBtn');
+    comentarioForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombreComentario').value.trim();
+      const comentario = document.getElementById('comentario').value.trim();
+      if (!nombre || !comentario) {
+        comentarioBtn.textContent = 'Completa todo';
+        setTimeout(() => {
+          comentarioBtn.textContent = 'Enviar comentario';
+        }, 2000);
+        return;
+      }
+      comentarioBtn.textContent = `¡Gracias por tu comentario, ${nombre}! 🍻✨`;
+      comentarioForm.reset();
+      setTimeout(() => {
+        comentarioBtn.textContent = 'Enviar comentario';
+      }, 5000);
+    });
+  </script>
+</body>
+</html>
